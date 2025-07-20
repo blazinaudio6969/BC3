@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Stack Table</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f8f9fa;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+    th {
+      background-color: #343a40;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .status-active {
+      color: green;
+      font-weight: bold;
+    }
+    .status-deprecated {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h2>BC3 Tech Stack</h2>
+<input type="text" id="searchInput" placeholder="Search tools or categories...">
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool Name</th>
+      <th>Category</th>
+      <th>Owner</th>
+      <th>Use Case</th>
+      <th>Cost</th>
+      <th>Status</th>
+      <th>Login</th>
+    </tr>
+  </thead>
+  <tbody id="techTable">
+    <tr>
+      <td>Slack</td>
+      <td>Communication</td>
+      <td>Wayne</td>
+      <td>Team messaging</td>
+      <td>$0</td>
+      <td class="status-active">Active</td>
+      <td><a href="https://slack.com" target="_blank">Link</a></td>
+    </tr>
+    <tr>
+      <td>Shopify</td>
+      <td>Ecommerce</td>
+      <td>Brian</td>
+      <td>Online sales</td>
+      <td>$39/mo</td>
+      <td class="status-active">Active</td>
+      <td><a href="https://shopify.com" target="_blank">Link</a></td>
+    </tr>
+    <tr>
+      <td>QuickBooks</td>
+      <td>Accounting</td>
+      <td>Emily</td>
+      <td>Bookkeeping & finance</td>
+      <td>$70/mo</td>
+      <td class="status-deprecated">Deprecated</td>
+      <td><a href="https://quickbooks.intuit.com" target="_blank">Link</a></td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const table = document.getElementById("techTable");
+
+  searchInput.addEventListener("keyup", function () {
+    const filter = searchInput.value.toLowerCase();
+    const rows = table.getElementsByTagName("tr");
+    for (let i = 0; i < rows.length; i++) {
+      const rowText = rows[i].textContent.toLowerCase();
+      rows[i].style.display = rowText.includes(filter) ? "" : "none";
+    }
+  });
+</script>
+
+</body>
+</html>
